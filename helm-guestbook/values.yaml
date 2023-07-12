@@ -5,8 +5,10 @@
 replicaCount: 1
 
 image:
-  repository: gcr.io/heptio-images/ks-guestbook-demo
-  tag: 0.1
+  # repository: gcr.io/heptio-images/ks-guestbook-demo
+  repository: nginx
+  # tag: 0.1
+  tag: ""
   pullPolicy: IfNotPresent
 
 service:
@@ -43,3 +45,4 @@ nodeSelector: {}
 tolerations: []
 
 affinity: {}
+
