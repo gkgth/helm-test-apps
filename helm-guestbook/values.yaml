@@ -8,7 +8,7 @@ image:
   # repository: gcr.io/heptio-images/ks-guestbook-demo
   repository: nginx
   # tag: 0.1
-  tag: ""
+  tag: "stable-bullseye"
   pullPolicy: IfNotPresent
 
 service:
