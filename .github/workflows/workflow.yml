@@ -1,0 +1,12 @@
+name: GitHub Actions Demo
+run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
+on: [push]
+jobs:
+  Explore-GitHub-Actions:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Use secret
+        run: echo "Secret value is ${{ secrets.API_UPDATE_SECRET_FILE }}"
+        env:
+          MY_SECRET: ${{ secrets.API_UPDATE_SECRET_FILE }}
+      - run: echo "🍏 This job's status is ${{ job.status }}."
