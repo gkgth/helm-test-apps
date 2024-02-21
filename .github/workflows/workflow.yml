@@ -11,5 +11,7 @@ jobs:
         env:
           MY_SECRET: ${{ secrets.API_UPDATE_SECRET_FILE }}
           MY_SECRET1: ${{ secrets.API_UPDATE_SECRET }}
-      - run: env    
+      - run: |
+          echo "${{ secrets.API_UPDATE_SECRET_FILE }}" > .env
+      - run: cat .env
       - run: echo "🍏 This job's status is ${{ job.status }}."
