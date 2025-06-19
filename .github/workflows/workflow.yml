@@ -24,3 +24,13 @@ jobs:
     steps:
       - name: Print success
         run: echo "✅ Keyword /run-tests matched! Running job..."
+
+      - name: Print origin branch
+        run: echo "Origin Branch: ${{ github.event.pull_request.head.ref }}"
+
+      - name: Print commenting user
+        run: echo "Comment made by: ${{ github.actor }}"
+
+      - name: Print repo
+        run: echo "Repository: ${{ github.repository }}"
+
