@@ -25,12 +25,13 @@ jobs:
       - name: Print success
         run: echo "✅ Keyword /run-tests matched! Running job..."
 
-      - name: Print origin branch
-        run: echo "Origin Branch: ${{ github.event.pull_request.head.ref }}"
+      - name: Print commenter
+        run: echo "Comment made by - $GITHUB_ACTOR"
 
-      - name: Print commenting user
-        run: echo "Comment made by: ${{ github.actor }}"
+      - name: Print origin branch
+        env:
+          PR_BRANCH: ${{ github.event.pull_request.head.ref }}
+        run: echo "PR source branch - $PR_BRANCH"
 
       - name: Print repo
-        run: echo "Repository: ${{ github.repository }}"
-
+        run: echo "Repo - $GITHUB_REPOSITORY"
