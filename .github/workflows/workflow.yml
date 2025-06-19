@@ -35,3 +35,15 @@ jobs:
 
       - name: Print repo
         run: echo "Repo - $GITHUB_REPOSITORY"
+
+      - name: Get PR branch name
+        id: get_branch
+        run: |
+          PR_NUMBER=${{ github.event.issue.number }}
+          BRANCH=$(curl -s -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+            https://api.github.com/repos/${{ github.repository }}/pulls/$PR_NUMBER \
+            | jq -r .head.ref)
+          echo "branch_name=$BRANCH" >> $GITHUB_OUTPUT
+
+      - name: Use branch name
+        run: echo "Source branch is ${{ steps.get_branch.outputs.branch_name }}"
