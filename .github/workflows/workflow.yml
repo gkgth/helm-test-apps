@@ -1,12 +1,26 @@
-name: GitHub Actions Demo
-run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
-on: [push]
+# name: GitHub Actions Demo
+# run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
+# on: [push]
+# jobs:
+#   Explore-GitHub-Actions:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: Use secret
+#         run: |
+#           echo "${{ secrets.API_UPDATE_SECRET }}" > .env
+#           cat .env
+#           echo "🍏 This job's status is ${{ job.status }}."
+
+name: Trigger on PR Comment
+
+on:
+  issue_comment:
+    types: [created]
+
 jobs:
-  Explore-GitHub-Actions:
+  keyword_trigger:
+    if: github.event.issue.pull_request && contains(github.event.comment.body, '/run-tests')
     runs-on: ubuntu-latest
     steps:
-      - name: Use secret
-        run: |
-          echo "${{ secrets.API_UPDATE_SECRET }}" > .env
-          cat .env
-          echo "🍏 This job's status is ${{ job.status }}."
+      - name: Print success
+        run: echo "✅ Keyword /run-tests matched! Running job..."
