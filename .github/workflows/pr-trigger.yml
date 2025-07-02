@@ -11,7 +11,7 @@
 #           cat .env
 #           echo "🍏 This job's status is ${{ job.status }}."
 
-name: Trigger on PR Comment
+name: PR Comment via dispatch
 
 on:
   workflow_dispatch:
