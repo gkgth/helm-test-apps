@@ -3,7 +3,7 @@
 This repository contains example applications for demoing ArgoCD functionality. Feel free
 to register this repository to your ArgoCD instance, or fork this repo and push your own commits
 to explore ArgoCD and GitOps and some tests 2 !
-| Application | Description |
+| Applications | Description |
 |-------------|-------------|
 | [guestbook](guestbook/) | A hello word guestbook app as plain YAML |
 | [ksonnet-guestbook](ksonnet-guestbook/) | The guestbook app as a ksonnet app |
@@ -18,4 +18,4 @@ to explore ArgoCD and GitOps and some tests 2 !
 | [plugins](plugins/) | Apps which demonstrate config management plugins usage |
 | [blue-green](blue-green/) | Demonstrates how to implement blue-green deployment using [Argo Rollouts](https://github.com/argoproj/argo-rollouts)
 | [apps](apps/) | An app composed of other apps |
-| [apps](apps/) | An app and apps  composed of other apps2 |
+| [apps](apps/) | An app and apps  composed of other apps3 |
