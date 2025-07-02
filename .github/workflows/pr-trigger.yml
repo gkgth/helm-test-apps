@@ -11,7 +11,7 @@
 #           cat .env
 #           echo "🍏 This job's status is ${{ job.status }}."
 
-name: Trigger on PR Comment
+name: PR Comment via dispatch
 
 on:
   workflow_dispatch:
@@ -22,8 +22,7 @@ on:
         default: 'default-value'
 
 jobs:
-  keyword_trigger:
-    if: github.event.issue.pull_request && contains(github.event.comment.body, '/run-tests')
+  pr-trigger:
     runs-on: ubuntu-latest
     steps:
       # - name: Print success by calling action
