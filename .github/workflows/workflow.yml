@@ -23,7 +23,7 @@ jobs:
     if: github.event.issue.pull_request && contains(github.event.comment.body, '/run-tests')
     runs-on: ubuntu-latest
     steps:
-      - name: Print success
+      - name: Print success by calling action
         uses: gkgth/helm-test-apps/.github/actions/trigger-pr-checker@gk2
         id: trigger_pr_action
       #   run: echo "✅ Keyword /run-tests matched! Running job..."
