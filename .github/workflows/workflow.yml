@@ -15,12 +15,12 @@ name: Trigger on PR Comment
 
 on:
   workflow_dispatch:
-  # issue_comment:
-  #   types: [created]
+  issue_comment:
+    types: [created]
 
 jobs:
   keyword_trigger:
-    # if: github.event.issue.pull_request && contains(github.event.comment.body, '/run-tests')
+    if: github.event.issue.pull_request && contains(github.event.comment.body, '/run-tests')
     runs-on: ubuntu-latest
     steps:
       - name: Print success
@@ -29,11 +29,6 @@ jobs:
       - name: Print commenter
         run: echo "Comment made by - $GITHUB_ACTOR"
 
-      - name: Print origin branch
-        env:
-          PR_BRANCH: ${{ github.event.pull_request.head.ref }}
-        run: echo "PR source branch - $PR_BRANCH"
-
       - name: Print repo
         run: echo "Repo - $GITHUB_REPOSITORY"
 
@@ -41,7 +36,7 @@ jobs:
         id: get_branch
         run: |
           PR_NUMBER=${{ github.event.issue.number }}
-          BRANCH=$(curl -s -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+          BRANCH=$(curl -s -H "Authorization: token ${{ secrets.GH_TOKEN }}" \
             https://api.github.com/repos/${{ github.repository }}/pulls/$PR_NUMBER \
             | jq -r .head.ref)
           echo "branch_name=$BRANCH" >> $GITHUB_OUTPUT
