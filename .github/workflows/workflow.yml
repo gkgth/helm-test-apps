@@ -24,7 +24,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Print success by calling action
-        uses: gkgth/helm-test-apps/.github/actions/trigger-pr-checker@gk2
+        uses: gkgth/helm-test-apps/.github/actions/trigger-pr-checker@main
         id: trigger_pr_action
       #   run: echo "✅ Keyword /run-tests matched! Running job..."
 
