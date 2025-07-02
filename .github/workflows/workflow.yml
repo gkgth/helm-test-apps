@@ -15,12 +15,12 @@ name: Trigger on PR Comment
 
 on:
   workflow_dispatch:
-  # issue_comment:
-  #   types: [created]
+  issue_comment:
+    types: [created]
 
 jobs:
   keyword_trigger:
-    # if: github.event.issue.pull_request && contains(github.event.comment.body, '/run-tests')
+    if: github.event.issue.pull_request && contains(github.event.comment.body, '/run-tests')
     runs-on: ubuntu-latest
     steps:
       - name: Print success
