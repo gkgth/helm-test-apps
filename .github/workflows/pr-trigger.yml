@@ -18,8 +18,8 @@ on:
     inputs:
       myInput:
         description: 'Example input'
-        required: false
-        default: 'default-value'
+        required: true
+        default: 10
 
 jobs:
   pr-trigger:
@@ -41,6 +41,7 @@ jobs:
       - name: Get PR branch name
         id: get_branch
         run: |
+          echo "Received PR: ${{ github.event.inputs.myInput }}"
           PR_NUMBER=${{ github.event.inputs.myInput }}
           echo "${PR_NUMBER}"
           BRANCH=$(curl -s -H "Authorization: token ${GH_TOKEN}" \

@@ -1,6 +1,6 @@
 # ArgoCD Example Apps
 
-Thissssss repository contains example applications for demoing ArgoCD functionality. Feel free
+This888sssss repository contains example applications for demoing ArgoCD functionality. Feel free
 to register this repository to your ArgoCD instance, or fork this repo and push your own commits
 to explore ArgoCD and GitOps and some tests 2 !
 | Applicatsions | Description |
