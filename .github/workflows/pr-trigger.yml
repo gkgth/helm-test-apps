@@ -24,6 +24,8 @@ on:
 jobs:
   pr-trigger:
     runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ secrets.GH_TOKEN }}  # or use a PAT if needed
     steps:
       # - name: Print success by calling action
       #   uses: gkgth/helm-test-apps/.github/actions/trigger-pr-checker@main
@@ -40,7 +42,7 @@ jobs:
         id: get_branch
         run: |
           PR_NUMBER=${{ github.event.issue.number }}
-          BRANCH=$(curl -s -H "Authorization: token ${{ secrets.GH_TOKEN }}" \
+          BRANCH=$(curl -s -H "Authorization: token ${GH_TOKEN}" \
             https://api.github.com/repos/${{ github.repository }}/pulls/$PR_NUMBER \
             | jq -r .head.ref)
           echo "branch_name=$BRANCH" >> $GITHUB_OUTPUT
