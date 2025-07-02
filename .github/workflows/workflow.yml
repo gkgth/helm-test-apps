@@ -29,11 +29,6 @@ jobs:
       - name: Print commenter
         run: echo "Comment made by - $GITHUB_ACTOR"
 
-      - name: Print origin branch
-        env:
-          PR_BRANCH: ${{ github.event.pull_request.head.ref }}
-        run: echo "PR source branch - $PR_BRANCH"
-
       - name: Print repo
         run: echo "Repo - $GITHUB_REPOSITORY"
 
@@ -41,7 +36,7 @@ jobs:
         id: get_branch
         run: |
           PR_NUMBER=${{ github.event.issue.number }}
-          BRANCH=$(curl -s -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+          BRANCH=$(curl -s -H "Authorization: token ${{ secrets.GH_TOKEN }}" \
             https://api.github.com/repos/${{ github.repository }}/pulls/$PR_NUMBER \
             | jq -r .head.ref)
           echo "branch_name=$BRANCH" >> $GITHUB_OUTPUT
