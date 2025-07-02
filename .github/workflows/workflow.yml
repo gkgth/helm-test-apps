@@ -29,6 +29,7 @@ jobs:
         run: |
           echo "${{ github.repository }}"
           PR_NUMBER=${{ github.event.issue.number }}
+          echo "${PR_NUMBER}"
           curl -X POST \
             -H "Accept: application/vnd.github+json" \
             -H "Authorization: Bearer $GH_TOKEN" \

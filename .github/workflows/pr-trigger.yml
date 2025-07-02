@@ -42,8 +42,9 @@ jobs:
         id: get_branch
         run: |
           PR_NUMBER=${{ github.event.inputs.myInput }}
+          echo "${PR_NUMBER}"
           BRANCH=$(curl -s -H "Authorization: token ${GH_TOKEN}" \
-            https://api.github.com/repos/${{ github.repository }}/pulls/$PR_NUMBER \
+            https://api.github.com/repos/${{ github.repository }}/pulls/${PR_NUMBER} \
             | jq -r .head.ref)
           echo "branch_name=$BRANCH" >> $GITHUB_OUTPUT
 
