@@ -48,6 +48,7 @@ jobs:
             https://api.github.com/repos/${{ github.repository }}/pulls/${PR_NUMBER} \
             | jq -r .head.ref)
           echo "branch_name=$BRANCH" >> $GITHUB_OUTPUT
+          echo "variable from root job $gk_newvar"
 
       - name: Use branch name
         run: echo "Source branch is ${{ steps.get_branch.outputs.branch_name }}"
