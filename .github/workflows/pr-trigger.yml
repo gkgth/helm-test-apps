@@ -49,6 +49,7 @@ jobs:
             | jq -r .head.ref)
           echo "branch_name=$BRANCH" >> $GITHUB_OUTPUT
           echo "variable from root job $gk_newvar"
+          echo "variable from root job ${{ steps.parentjobid.outputs.gk_newvar }}"
 
       - name: Use branch name
         run: echo "Source branch is ${{ steps.get_branch.outputs.branch_name }}"
