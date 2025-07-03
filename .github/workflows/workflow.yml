@@ -24,6 +24,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Trigger target workflow
+        id: parentjobid
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}  # or use a PAT if needed
         run: |
